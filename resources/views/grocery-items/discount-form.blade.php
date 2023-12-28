@@ -21,6 +21,11 @@
         </style>
 </head>
 <body>
+@if(session('success'))
+    <script>
+        alert("{{ session('success') }}");
+    </script>
+@endif
 <div id="wrapper">
     <nav class="navbar header-top fixed-top navbar-expand-lg  navbar-dark bg-dark">
       <div class="container">
@@ -54,35 +59,25 @@
           <div class="card">
             <div class="card-body">
               <h5 class="card-title mb-5 d-inline">Create Product</h5>
-              <form method="POST" action="{{ url('/grocery-items') }}">
+              <form action="{{ route('apply-discount') }}" method="post">
         @csrf
                 <!-- Email input -->
-                <div class="form-outline mb-4 mt-4">
-                  <input type="text" name="name" id="form2Example1" class="form-control" placeholder="name" required />
-                 
-                </div>
 
                 <div class="form-outline mb-4 mt-4">
-                  <input type="text" name="category" id="form2Example1" class="form-control" placeholder="category" required />
-                 
+                <label for="categoryname">Category Name:</label>
+                  <input type="text" name="categoryname" id="category_name" class="form-control" placeholder="category" required />
                 </div>
                 <div class="form-outline mb-4 mt-4">
-                <input type="number" name="quantity"  class="form-control" placeholder="quantity" required />
-                 
+                <label for="categoryname">Category Discount</label>
+                <input type="number" name="discount" id="category_discount"  class="form-control" placeholder="discount" required />
                 </div>
-                <div class="form-outline mb-4 mt-4">
-                <input type="number" name="price" step="0.01" class="form-control" placeholder="price" required />
-                 
-                </div>
-              
-             
 
                 <br>
               
 
       
                 <!-- Submit button -->
-                <button type="submit" name="submit" class="btn btn-primary  mb-4 text-center">create</button>
+                <button type="submit" name="submit" class="btn btn-primary  mb-4 text-center">Apply Discount</button>
 
           
               </form>

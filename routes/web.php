@@ -20,4 +20,6 @@ use App\Http\Controllers\GroceryItemController;
 Route::get('/grocery-items', [GroceryItemController::class, 'index'])->name('grocery-items.index');
 Route::get('/grocery-items/create', [GroceryItemController::class, 'create'])->name('grocery-items.create');
 Route::post('/grocery-items', [GroceryItemController::class, 'store']);
+Route::view('/grocery-items/discount-form', 'grocery-items.discount-form')->name('discount-form');
+Route::post('/apply-discount', [GroceryItemController::class, 'applyDiscount'])->name('apply-discount');
 

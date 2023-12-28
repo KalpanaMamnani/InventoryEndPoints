@@ -36,16 +36,20 @@
       </button>
 
       <div class="collapse navbar-collapse" id="navbarText">
-        <ul class="navbar-nav side-nav" >
-          <li class="nav-item">
+      <ul class="navbar-nav side-nav" >
+        <li class="nav-item">
             <a class="nav-link" style="margin-left: 20px;" href="{{ route('grocery-items.create') }}">Add Item
-              <span class="sr-only">(current)</span>
+                <span class="sr-only">(current)</span>
             </a>
-          </li>
-          <li class="nav-item">
+        </li>
+        <li class="nav-item">
             <a class="nav-link" href="{{ route('grocery-items.index') }}" style="margin-left: 20px;">View Items</a>
-          </li>
-        </ul>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{ route('discount-form') }}" style="margin-left: 20px;">Apply Discount</a>
+        </li>
+    </ul>
+
       </div>
     </div>
     </nav>
@@ -80,7 +84,14 @@
                         <td>{{ $item->name }}</td>
                         <td>{{ $item->category }}</td>
                         <td>{{ $item->quantity }}</td>
-                        <td>${{ $item->price }}</td>
+                        <td>
+                            @if($item->discounted_price != $item->price)
+                                Discounted Price: ${{ $item->discounted_price }}
+                            @else
+                                Original Price: ${{ $item->price }}
+                            @endif
+                        </td>
+
                     </tr>
                 @endforeach
 
