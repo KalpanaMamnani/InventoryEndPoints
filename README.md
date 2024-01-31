@@ -17,7 +17,7 @@ This Laravel application provides endpoints for managing a grocery inventory. It
    gh repo clone KalpanaMamnani/InventoryEndPoints
    ```
 
-2. **Change to project directory:**
+2. **Change to the project directory:**
    ```bash
    cd InventoryEndPoints
    ```
